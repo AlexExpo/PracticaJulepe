@@ -9,7 +9,11 @@ public class Baza
     
     private ArrayList<Carta> baza;
     
+    private ArrayList<String> nombreJugadores;
+    
     private Jugador[] jugadores;
+    
+    private int posicionGanadora;
 
     /**
      * Constructor for objects of class Baza
@@ -19,12 +23,15 @@ public class Baza
         numeroJugadoresQueTiranCarta = numeroJugadoresATirarCarta;
         paloQuePinta = paloAPintar;
         baza = new ArrayList<Carta>();
+        nombreJugadores = new ArrayList<String>();
         jugadores = new Jugador[numeroJugadoresATirarCarta];
+        posicionGanadora = 0;
     }
 
     public void addCarta(Carta cartaATirar, String jugadorQueTiraLaCarta)
     {
         baza.add(cartaATirar);
+        nombreJugadores.add(jugadorQueTiraLaCarta);
     }
     
     public int getPaloPrimeraCartaDeLaBaza()
@@ -46,12 +53,24 @@ public class Baza
             }
             if (!cartaADevolver.ganaA(baza.get(contador), paloQuePinta)) {
                 cartaADevolver = baza.get(contador);
+                posicionGanadora = contador;
             }
             contador++;
         }
         return cartaADevolver;
     }
     
+    public String nombreJugadorQueVaGanandoLaBaza()
+    {
+        String jugadorQueVaGanandoLaBaza = "";
+        if (baza.size() > 0) {
+            jugadorQueVaGanandoLaBaza = nombreJugadores.get(posicionGanadora);
+        }
+        else {
+            jugadorQueVaGanandoLaBaza = "No hay ninguna carta en la baza.";
+        }
+        return jugadorQueVaGanandoLaBaza;
+    }
 }
 
 
