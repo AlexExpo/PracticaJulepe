@@ -35,6 +35,23 @@ public class Baza
         }
         return palo;
     }
+    
+    public Carta cartaQueVaGanandoLaBaza()
+    {
+        Carta cartaADevolver = null;
+        int contador = 0;
+        while (contador < baza.size()) {
+            if (cartaADevolver == null) {
+                cartaADevolver = baza.get(0);
+            }
+            if (!cartaADevolver.ganaA(baza.get(contador), paloQuePinta)) {
+                cartaADevolver = baza.get(contador);
+            }
+            contador++;
+        }
+        return cartaADevolver;
+    }
+    
 }
 
 
