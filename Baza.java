@@ -30,7 +30,9 @@ public class Baza
     public int getPaloPrimeraCartaDeLaBaza()
     {
         int palo = -1;
-        
+        if (baza.size() > 0) {
+            palo = baza.get(0).getPalo();
+        }
         return palo;
     }
 }
