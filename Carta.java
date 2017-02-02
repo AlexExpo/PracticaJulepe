@@ -87,14 +87,13 @@ public class Carta
     public int getPosicionEscalaTute() 
     {
       int posicion = valorDeLaCarta;
-    
       if (valorDeLaCarta == 3) {
           posicion = 13;
       }
       else if (valorDeLaCarta == 1) {
             posicion = 14;
       }
-      return posicion;    
+      return posicion;
     }
 }
     
