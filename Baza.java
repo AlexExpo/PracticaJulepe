@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Baza
 {
@@ -6,6 +6,10 @@ public class Baza
     private int numeroJugadoresQueTiranCarta;
     
     private int paloQuePinta;
+    
+    private ArrayList<Carta> baza;
+    
+    private Jugador[] jugadores;
 
     /**
      * Constructor for objects of class Baza
@@ -14,8 +18,25 @@ public class Baza
     {
         numeroJugadoresQueTiranCarta = numeroJugadoresATirarCarta;
         paloQuePinta = paloAPintar;
+        baza = new ArrayList<Carta>();
+        jugadores = new Jugador[numeroJugadoresATirarCarta];
     }
 
+    public void addCarta(Carta cartaATirar, String jugadorQueTiraLaCarta)
+    {
+        baza.add(cartaATirar);
+    }
     
-    
+    public int getPaloPrimeraCartaDeLaBaza()
+    {
+        int palo = -1;
+        
+        return palo;
+    }
 }
+
+
+
+
+
+
