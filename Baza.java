@@ -47,16 +47,18 @@ public class Baza
     {
         Carta cartaADevolver = null;
         int contador = 0;
+        int contador2 = 0;
         while (contador < baza.size()) {
             if (cartaADevolver == null) {
                 cartaADevolver = baza.get(0);
             }
             if (!cartaADevolver.ganaA(baza.get(contador), paloQuePinta)) {
                 cartaADevolver = baza.get(contador);
-                posicionGanadora = contador;
+                contador2 = contador;
             }
             contador++;
         }
+        posicionGanadora = contador2;
         return cartaADevolver;
     }
     
@@ -65,6 +67,7 @@ public class Baza
         String jugadorQueVaGanandoLaBaza = "";
         if (baza.size() > 0) {
             jugadorQueVaGanandoLaBaza = nombreJugadores.get(posicionGanadora);
+            
         }
         else {
             jugadorQueVaGanandoLaBaza = "No hay ninguna carta en la baza.";
